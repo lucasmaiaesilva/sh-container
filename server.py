@@ -11,7 +11,7 @@ def office(action = "list"):
     if (action == "list"):
         file = open("state.txt", "r")
         state_light = eval(file.read().strip())
-        print(state_light)
+        # print(state_light)
         return { "lights": state_light }
     if (action == "on"):
         file = open("state.txt", "w")
@@ -23,4 +23,4 @@ def office(action = "list"):
         return { "error": False, "message": "ok" }
     return { "error": True, "message":  "option not found" }
 
-app.run(debug = True, port = 5005)
+app.run(host='0.0.0.0', debug = True, port = 3000)
