@@ -8,6 +8,7 @@ app = flask.Flask(__name__)
 @app.route("/escritorio/")
 @app.route("/escritorio/<string:action>")
 def office(action = "list"):
+    print("the application is running")
     if (action == "list"):
         file = open("state.txt", "r")
         state_light = eval(file.read().strip())
