@@ -1,4 +1,5 @@
 import flask
+import os
 # this requires the lib flask installed
 # pip3 install flask
 # import json
@@ -24,4 +25,6 @@ def office(action = "list"):
         return { "error": False, "message": "ok" }
     return { "error": True, "message":  "option not found" }
 
-app.run(host='0.0.0.0', debug = True, port = 3000)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
